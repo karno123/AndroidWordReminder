@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Word Remainder</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="splash_text">This is a splash text</string>
+	<string name="add_word">Add New Word</string>
+	<string name="view_word">View Word</string>
+	<string name="setting">Setting Apps</string>
+	
+	
+	<string name="addnewword_title">Add New Word</string>
+	<string name="viewword_title">View Word</string>
+	
+	<string name="new_text_word">New Word </string>
+	<string name="meaning_word">Meaning   </string>
+	<string name="kind_of_word">Kind of Word  </string>
+	
+	<string name="kind_of_word_prompt">Choose kind of word</string>
+	<string-array name="word_arrays">
+	    <item>Noun</item>
+	    <item>Verb</item>
+	    <item>Adjective</item>
+	    <item>Adverb</item>
+	    <item>Interjection</item>
+	    <item>Preposition</item>
+	    <item>Conjunction</item>
+	    <item>Pronoun</item>
+	</string-array>
+	
+	<string name="add_word_button">Save</string>
+	<string name="search_text">Search </string>
+	
+	<string name="main_word" >main_word </string>
+	<string name="meaning">meaning karno <b>siahaan</b></string>
+</resources>
