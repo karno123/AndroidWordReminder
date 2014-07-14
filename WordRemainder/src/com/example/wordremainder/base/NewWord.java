@@ -3,7 +3,7 @@ package com.example.wordremainder.base;
 public class NewWord {
 	private int id;
 	private String word;
-	private String kinOfWord;
+	private String kindOfWord;
 	private String meaning;
 	
 	public int getId() {
@@ -18,11 +18,11 @@ public class NewWord {
 	public void setWord(String word) {
 		this.word = word;
 	}
-	public String getKinOfWord() {
-		return kinOfWord;
+	public String getKindOfWord() {
+		return kindOfWord;
 	}
-	public void setKinOfWord(String kinOfWord) {
-		this.kinOfWord = kinOfWord;
+	public void setKindOfWord(String kinOfWord) {
+		this.kindOfWord = kinOfWord;
 	}
 	public String getMeaning() {
 		return meaning;

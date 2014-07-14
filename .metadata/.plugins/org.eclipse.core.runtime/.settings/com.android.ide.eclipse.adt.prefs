@@ -1,0 +1,6 @@
+com.android.ide.eclipse.adt.autoPickTarget=false
+com.android.ide.eclipse.adt.fixLegacyEditors=1
+com.android.ide.eclipse.adt.sdk=/media/karno/karno/adt-bundle-linux-x86-20130219/sdk
+com.android.ide.eclipse.adt.xmlEditor=true
+design.palette.flyout.state=1
+eclipse.preferences.version=1

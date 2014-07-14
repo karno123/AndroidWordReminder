@@ -1,0 +1,76 @@
+package com.example.wordremainder;
+
+import com.example.data.action.DatabaseAction;
+import com.example.wordremainder.base.NewWord;
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+
+public class AddNewWord extends Activity{
+
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.add_word_layout);
+		addNewWordButton();
+	}
+	
+	public void addNewWordButton()
+	{
+		
+		Button addNewWordButton=(Button) findViewById(R.id.add_new_word_button);
+		
+		addNewWordButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				
+				new Thread(
+							new Runnable() {
+								
+								@Override
+								public void run() {
+									// TODO Auto-generated method stub
+									
+										NewWord newWord=new NewWord();
+										
+										EditText word=(EditText) findViewById(R.id.input_text_new_word);
+										EditText meaning=(EditText) findViewById(R.id.input_text_meaning);
+										Spinner  kindOfwordSpinner=(Spinner) findViewById(R.id.kind_of_word);
+										
+										newWord.setWord(word.getText().toString());
+										newWord.setMeaning(meaning.getText().toString());
+										newWord.setKinOfWord(kindOfwordSpinner.getSelectedItem().toString());
+										
+										DatabaseAction databaseAction =new DatabaseAction();
+										
+										long insertStatus=databaseAction.addNewWord(newWord,getApplicationContext());
+										
+										if(insertStatus!=-1)
+										{
+										    Toast.makeText(getApplicationContext(), "Insert Success", Toast.LENGTH_SHORT).show();
+										    
+										}else
+										{
+											Toast.makeText(getApplicationContext(), "Error When Saving Word",Toast.LENGTH_SHORT).show();
+										}
+								
+								
+								}
+							}
+						).run();
+				
+					
+			}
+		});
+	}
+	
+}

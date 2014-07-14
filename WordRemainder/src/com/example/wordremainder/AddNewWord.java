@@ -4,8 +4,11 @@ import com.example.data.action.DatabaseAction;
 import com.example.wordremainder.base.NewWord;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +23,10 @@ public class AddNewWord extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		ActionBar actionBar=getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		
 		setContentView(R.layout.add_word_layout);
 		addNewWordButton();
 	}
@@ -33,6 +40,7 @@ public class AddNewWord extends Activity{
 			@Override
 			public void onClick(View arg0) {
 				
+					boolean validate=true;
 
 					NewWord newWord=new NewWord();
 					
@@ -40,25 +48,81 @@ public class AddNewWord extends Activity{
 					EditText meaning=(EditText) findViewById(R.id.input_text_meaning);
 					Spinner  kindOfwordSpinner=(Spinner) findViewById(R.id.kind_of_word);
 					
-					newWord.setWord(word.getText().toString());
-					newWord.setMeaning(meaning.getText().toString());
-					newWord.setKinOfWord(kindOfwordSpinner.getSelectedItem().toString());
-					
-					DatabaseAction databaseAction =new DatabaseAction();
-					
-					long insertStatus=databaseAction.addNewWord(newWord,getApplicationContext());
-					
-					if(insertStatus!=-1)
+					if(word.getText().toString()==null || word.getText().toString().equals(""))
 					{
-					    Toast.makeText(getApplicationContext(), "Insert Success", Toast.LENGTH_SHORT).show();
-					}else
-					{
-						Toast.makeText(getApplicationContext(), "Error When Saving Word",Toast.LENGTH_SHORT).show();
+						word.setError("Word can not be empty");
+						validate=false;
 					}
-								
-							
+					
+					
+					if(meaning.getText().toString()==null||meaning.getText().toString().equals("")  )
+					{
+						meaning.setError("Meaning can not be empty");
+						validate=false;
+					}
+					
+					if(kindOfwordSpinner.getSelectedItem().toString().equals("-"))
+					{
+						Toast.makeText(getApplicationContext(), "Plase choose kind of word", Toast.LENGTH_SHORT).show();
+						validate=false;
+					}
+					
+					
+					if(validate)
+					{
+						newWord.setWord(word.getText().toString().toLowerCase());
+						newWord.setMeaning(meaning.getText().toString());
+						newWord.setKindOfWord(kindOfwordSpinner.getSelectedItem().toString());
+						
+						DatabaseAction databaseAction =new DatabaseAction();
+						
+						long insertStatus=databaseAction.addNewWord(newWord,getApplicationContext());
+						
+						if(insertStatus!=-1)
+						{
+						    Toast.makeText(getApplicationContext(), "Insert Success", Toast.LENGTH_SHORT).show();
+						    finish();
+							Intent intent=new Intent(getBaseContext(),ViewWord.class);
+							startActivity(intent);
+						}else
+						{
+							Toast.makeText(getApplicationContext(), "Error When Saving Word",Toast.LENGTH_SHORT).show();
+							finish();
+							Intent intent=new Intent(getBaseContext(),ViewWord.class);
+							startActivity(intent);
+						}
+					}
+										
 			}
 		});
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		switch(item.getItemId())
+		{
+		
+		}
+		
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
+	
+	
+	public boolean validateForm()
+	{
+		
+		
+		return true;
+	}
+	
 	
 }

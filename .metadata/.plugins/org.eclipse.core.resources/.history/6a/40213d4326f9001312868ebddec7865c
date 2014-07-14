@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1" >
+    
+    <TableRow
+        android:id="@+id/setting_row1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+        <TextView 
+	        android:id="@+id/enable_setting"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/enable_setting"/>
+        
+        <ToggleButton android:id="@+id/enable_disable_setting" 
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"/>
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/setting_row2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+        <TextView 
+	        android:id="@+id/word_per_day_label"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/word_per_day"/>
+        
+        <EditText 
+            	  android:inputType="text"	
+                  android:id="@+id/word_per_day"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:text=""
+                  android:enabled="false"/>
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/setting_row3"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+        <TextView 
+	        android:id="@+id/enable_"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/set_reminder_time"/>
+        
+        <TimePicker 
+            android:id="@+id/alarm_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+    
+     <TableRow
+        android:id="@+id/setting_row4"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+
+        <Button 
+            android:id="@+id/settingOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_ok"/>
+            
+        <Button 
+            android:id="@+id/settingCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_Cancel"/>
+    </TableRow>
+	
+</TableLayout>

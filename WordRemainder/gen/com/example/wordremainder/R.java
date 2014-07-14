@@ -24,43 +24,47 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int search=0x7f020001;
-        public static final int splash=0x7f020002;
+        public static final int add=0x7f020000;
+        public static final int home=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int search=0x7f020003;
+        public static final int splash=0x7f020004;
     }
     public static final class id {
         public static final int action_settings=0x7f090014;
-        public static final int add_new_word_button=0x7f09000e;
-        public static final int add_row1=0x7f090003;
-        public static final int add_row2=0x7f090006;
-        public static final int add_row3=0x7f090009;
-        public static final int add_row4=0x7f09000c;
-        public static final int add_word=0x7f090000;
-        public static final int blank=0x7f09000d;
-        public static final int input_text_meaning=0x7f090008;
-        public static final int input_text_new_word=0x7f090005;
-        public static final int kind_of_word=0x7f09000b;
-        public static final int kind_of_word_text=0x7f09000a;
-        public static final int list_title=0x7f090010;
-        public static final int rowTextView=0x7f090013;
-        public static final int search_text_input=0x7f090011;
-        public static final int setting=0x7f090002;
-        public static final int splashscreen=0x7f09000f;
-        public static final int text_meaning_word=0x7f090007;
-        public static final int text_new_word=0x7f090004;
-        public static final int view_word=0x7f090001;
-        public static final int word_list=0x7f090012;
+        public static final int add_new_word_button=0x7f090006;
+        public static final int delete=0x7f090013;
+        public static final int edit=0x7f090012;
+        public static final int input_text_meaning=0x7f090003;
+        public static final int input_text_new_word=0x7f090001;
+        public static final int kind_of_word=0x7f090005;
+        public static final int kind_of_word_text=0x7f090004;
+        public static final int list_title=0x7f09000d;
+        public static final int rowTextView=0x7f090010;
+        public static final int save_edit_word=0x7f090007;
+        public static final int search_text_input=0x7f09000e;
+        public static final int setting_button_disable_enable=0x7f090009;
+        public static final int setting_enable=0x7f090008;
+        public static final int setting_time=0x7f09000c;
+        public static final int setting_word_per_day=0x7f09000b;
+        public static final int setting_word_perday=0x7f09000a;
+        public static final int text_meaning_word=0x7f090002;
+        public static final int text_new_word=0x7f090000;
+        public static final int title_bar_add=0x7f090011;
+        public static final int word_list=0x7f09000f;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int add_word_layout=0x7f030001;
-        public static final int splash_layout=0x7f030002;
+        public static final int add_word_layout=0x7f030000;
+        public static final int edit_word_layout=0x7f030001;
+        public static final int setting_app=0x7f030002;
         public static final int view_title=0x7f030003;
         public static final int view_word=0x7f030004;
         public static final int view_word_list_layout=0x7f030005;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int home_title_bar=0x7f080000;
+        public static final int listwordmenu=0x7f080001;
+        public static final int main=0x7f080002;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -68,18 +72,28 @@ public final class R {
         public static final int add_word_button=0x7f05000d;
         public static final int addnewword_title=0x7f050007;
         public static final int app_name=0x7f050000;
+        public static final int cancel_edit_word_button=0x7f05000e;
         public static final int hello_world=0x7f050002;
+        public static final int home=0x7f05001a;
         public static final int kind_of_word=0x7f05000b;
         public static final int kind_of_word_prompt=0x7f05000c;
-        public static final int main_word=0x7f05000f;
-        public static final int meaning=0x7f050010;
+        public static final int main_word=0x7f050010;
+        public static final int meaning=0x7f050011;
         public static final int meaning_word=0x7f05000a;
         public static final int new_text_word=0x7f050009;
-        public static final int search_text=0x7f05000e;
+        public static final int reminder_time=0x7f050015;
+        public static final int search_text=0x7f05000f;
         public static final int setting=0x7f050006;
+        public static final int setting_Cancel=0x7f050018;
+        public static final int setting_enable=0x7f050013;
+        public static final int setting_label=0x7f050019;
+        public static final int setting_ok=0x7f050017;
         public static final int splash_text=0x7f050003;
+        public static final int updateWord=0x7f050012;
         public static final int view_word=0x7f050005;
         public static final int viewword_title=0x7f050008;
+        public static final int word_per_day=0x7f050014;
+        public static final int word_per_day_def=0x7f050016;
     }
     public static final class style {
         /** 

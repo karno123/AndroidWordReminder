@@ -1,0 +1,138 @@
+package com.example.wordremainder;
+
+import java.util.ArrayList;
+
+import com.example.data.action.DatabaseAction;
+import com.example.data.action.ListViewWordModel;
+import com.example.wordremainder.base.ViewWordModel;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+
+public class ViewWord extends Activity{
+	
+	private ListViewWordModel listArrayAdapter;
+	private ListView listFootballView;
+	private EditText searchTextView;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.view_word);
+		listFootballView= (ListView) findViewById(R.id.word_list);
+		listFootballView.setTextFilterEnabled(true);
+		
+		generateViewWord();
+		
+		searchTextView = (EditText) findViewById(R.id.search_text_input);
+		
+		searchTextView.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+				// TODO Auto-generated method stub
+				listArrayAdapter.getFilter().filter(arg0.toString());
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
+	
+	public void generateViewWord()
+	{
+	    
+		DatabaseAction dataBaseAction =new DatabaseAction();
+		
+		ArrayList<ViewWordModel> viewWordModelList=dataBaseAction.getAllWordList(getApplicationContext());
+		listArrayAdapter=new  ListViewWordModel(this, viewWordModelList);
+		listFootballView.setAdapter(listArrayAdapter);
+		
+		listFootballView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(),"testing",Toast.LENGTH_LONG).show();
+				
+				ViewWordModel viewWordModel =(ViewWordModel) listFootballView.getItemAtPosition(position);
+				
+				if(!viewWordModel.isHeader())
+				{
+					listFootballView.showContextMenu();
+				}
+				return false;
+			}
+		});
+		
+		
+	}
+
+
+	
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		// TODO Auto-generated method stub
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater menuInflater =getMenuInflater();
+		menuInflater.inflate(R.menu.listwordmenu, menu);
+	}
+
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		AdapterContextMenuInfo info=(AdapterContextMenuInfo) item.getMenuInfo();
+		
+		switch(item.getItemId())
+		{
+			case R.id.edit:
+				
+				
+				return true;
+			case R.id.delete:
+				
+				return true;
+		}
+		
+		return super.onContextItemSelected(item);
+	}
+	
+	
+}
+
+
+
+
+

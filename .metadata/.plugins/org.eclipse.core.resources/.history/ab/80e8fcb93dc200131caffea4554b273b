@@ -1,0 +1,43 @@
+package com.example.wordremainder;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.ImageView;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+
+	private static final int STOPSPLASH = 0;		
+	private static final long SPLASHTIME = 3000;
+	
+	private ImageView splash;
+	
+	private Handler splashHandler =new Handler()
+	{
+
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			
+			switch(msg.what)
+			{
+			case STOPSPLASH:
+				
+			}
+			
+			super.handleMessage(msg);
+		}
+		
+	};
+	
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        
+        
+        setContentView(R.layout.activity_main);
+    }
+    
+}

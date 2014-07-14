@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="60dp"
+    android:paddingRight="60dp" 
+    android:orientation="vertical">
+      
+    <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:paddingTop="20dp">
+		    <TextView 
+		        android:id="@+id/setting_enable"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/setting_enable"
+		        />
+		    <ToggleButton 
+		        android:id="@+id/setting_button_disable_enable"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        />    
+     </LinearLayout>   
+     
+    
+    <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:paddingTop="20dp">
+		    <TextView 
+		        android:id="@+id/setting_word_perday"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/word_per_day"
+		        android:layout_marginRight="10dp"
+		        />
+
+		    <EditText
+		        android:id="@+id/setting_word_per_day"
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:text="@string/word_per_day_def"
+		        android:inputType="number" />
+
+    </LinearLayout>
+
+    
+    <LinearLayout 
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal"
+        	android:paddingTop="20dp"
+        	>
+        	<TextView 
+		        android:id="@+id/setting_time"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/reminder_time"
+		        android:layout_marginRight="10dp"
+		        />
+        	
+        	
+    </LinearLayout>
+    
+</LinearLayout>
+   

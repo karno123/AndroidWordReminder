@@ -1,0 +1,45 @@
+package com.example.wordremainder;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class UpdateWordActivity extends Activity{
+
+	private EditText word;
+	private EditText meaning;
+	private Spinner  kindOfWord;
+	private int id;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.add_word_layout);
+		
+		word=(EditText) findViewById(R.id.input_text_new_word);
+		meaning=(EditText) findViewById(R.id.input_text_meaning);
+		kindOfWord=(Spinner) findViewById(R.id.kind_of_word);
+		
+		
+		Bundle extras = getIntent().getExtras();
+		
+		if(extras!=null)
+		{
+			this.word.setText(extras.getString("word"));
+			this.meaning.setText(extras.getString("meaning"));
+			
+			ArrayAdapter<String> kindOfwordAdapter = (ArrayAdapter) kindOfWord.getAdapter();
+			
+			int position = kindOfwordAdapter.getPosition(extras.getString("kindOfWord"));
+			this.id =extras.getInt("id");
+			this.kindOfWord.setSelection(position);
+		}
+		
+	}
+	
+	
+	
+}

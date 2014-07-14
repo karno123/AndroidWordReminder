@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="1" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/karno123/AndroidWordReminder.git"/>
+		<item value="https://github.com:21/karno123/AndroidWordReminder/tree/master/WordRemainder"/>
+		<item value="https://github.com/karno123/AndroidWordReminder/tree/master/WordRemainder"/>
+	</list>
+</section>

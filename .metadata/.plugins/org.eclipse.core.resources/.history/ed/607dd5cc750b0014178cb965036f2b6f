@@ -1,0 +1,101 @@
+package com.example.wordremainder;
+
+import com.example.data.action.DatabaseAction;
+import com.example.wordremainder.base.NewWord;
+
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class UpdateWordActivity extends Activity{
+
+	private EditText word;
+	private EditText meaning;
+	private Spinner  kindOfWord;
+	private Button   saveButton;
+	private int id;
+	private NewWord newWord;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.edit_word_layout);
+		
+		ActionBar actionBar=getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		
+		word=(EditText) findViewById(R.id.input_text_new_word);
+		meaning=(EditText) findViewById(R.id.input_text_meaning);
+		kindOfWord=(Spinner) findViewById(R.id.kind_of_word);
+		saveButton=(Button) findViewById(R.id.save_edit_word);
+		
+		Bundle extras = getIntent().getExtras();
+		
+		if(extras!=null)
+		{
+			this.word.setText(extras.getString("word"));
+			this.meaning.setText(extras.getString("meaning"));
+			
+			ArrayAdapter<String> kindOfwordAdapter = (ArrayAdapter) kindOfWord.getAdapter();
+			
+			int position = kindOfwordAdapter.getPosition(extras.getString("kindOfWord"));
+			this.id =extras.getInt("id");
+			this.kindOfWord.setSelection(position);
+			
+			
+		}
+		
+		saveButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boolean validate=true;
+				
+				if(word.getText().toString()==null || word.getText().toString().equals(""))
+				{
+					validate=false;
+					word.setError("Word can not be empty");
+				}
+				
+				
+				if(meaning.getText().toString()==null||meaning.getText().toString().equals("")  )
+				{
+					meaning.setError("Meaning can not be empty");
+					validate=false;
+				}
+				
+				
+				
+				DatabaseAction databaseAction =new DatabaseAction();
+				newWord=new NewWord();
+				newWord.setId(id);
+				newWord.setWord(word.getText().toString().toLowerCase());
+				newWord.setMeaning(meaning.getText().toString());
+				newWord.setKindOfWord(kindOfWord.getSelectedItem().toString());
+				String status=databaseAction.updateWord(newWord, getApplicationContext());
+				if(status.equals("SUCCESS"))
+				{
+					Toast.makeText(getApplicationContext(), "Update Word Success",Toast.LENGTH_SHORT).show();
+				}else
+				{
+					Toast.makeText(getApplicationContext(), "Something Error When Update Data",Toast.LENGTH_SHORT).show();
+				}
+				finish();
+				Intent intent=new Intent(getBaseContext(),ViewWord.class);
+				startActivity(intent);
+			}
+			
+		});
+		
+	}
+}

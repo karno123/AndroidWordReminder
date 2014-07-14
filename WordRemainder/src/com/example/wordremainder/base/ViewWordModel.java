@@ -13,14 +13,15 @@ public class ViewWordModel extends NewWord{
 	
 	}
 	
-	public ViewWordModel(String word,String kindOfWord,String meaning,String header)
+	public ViewWordModel(String word,String kindOfWord,String meaning,String header,int id)
 	{
 		
 		super();	
 		this.isHeader=false;
 		setWord(word);
 		setMeaning(meaning);
-		setKinOfWord(kindOfWord);
+		setKindOfWord(kindOfWord);
+		setId(id);
 	}
 
 	public boolean isHeader() {

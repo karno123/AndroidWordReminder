@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WordRemainDer</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="splash_text">This is a splash text</string>
+	<string name="add_word">Add New Word</string>
+	<string name="view_word">View Word</string>
+	<string name="setting">Setting Apps</string>
+	
+	
+	
+	<string name="new_text_word">New Word :</string>
+	<string name="meaning_word">Meaning   :</string>
+	
+</resources>

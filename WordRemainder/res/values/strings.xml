@@ -13,12 +13,13 @@
 	<string name="addnewword_title">Add New Word</string>
 	<string name="viewword_title">View Word</string>
 	
-	<string name="new_text_word">New Word </string>
-	<string name="meaning_word">Meaning   </string>
-	<string name="kind_of_word">Kind of Word  </string>
+	<string name="new_text_word">New Word     </string>
+	<string name="meaning_word"> Meaning       </string>
+	<string name="kind_of_word"> Kind of Word   </string>
 	
 	<string name="kind_of_word_prompt">Choose kind of word</string>
 	<string-array name="word_arrays">
+	    <item>-</item>
 	    <item>Noun</item>
 	    <item>Verb</item>
 	    <item>Adjective</item>
@@ -29,9 +30,26 @@
 	    <item>Pronoun</item>
 	</string-array>
 	
-	<string name="add_word_button">Save</string>
+	<string name="add_word_button">  Save  </string>
+	<string name="cancel_edit_word_button">Cancel</string>
 	<string name="search_text">Search </string>
 	
 	<string name="main_word" >main_word </string>
 	<string name="meaning">meaning karno <b>siahaan</b></string>
+	
+	<string name="updateWord">Update Word</string>
+	
+	
+	<string name="setting_enable">Enable setting </string>
+	<string name="word_per_day">Word per day  </string>
+	<string name="reminder_time">Reminder time</string>
+	<string name="word_per_day_def">50</string>
+	
+	<string name="setting_ok">OK</string>
+	<string name="setting_Cancel">Cancel</string>
+	
+	<string name="setting_label">Setting</string>
+	
+	<string name="home">home</string>
+	
 </resources>

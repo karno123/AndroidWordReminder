@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+  
+	<TableRow
+	    
+	    android:id="@+id/add_row1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+	    
+	    <TextView 
+	        android:id="@+id/text_new_word"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/new_text_word"/>
+	    
+	    <EditText 
+	        android:inputType="text"
+	        android:id="@+id/input_text_new_word"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        />
+	</TableRow>
+	
+	<TableRow 
+	    android:id="@+id/add_row2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    >
+	    
+	    <TextView
+	        android:id="@+id/text_meaning_word"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/meaning_word"
+	        />	 
+	     
+	   <EditText 
+	        android:inputType="textMultiLine"
+	        android:id="@+id/input_text_meaning"
+	        android:layout_width="200dp"
+	        android:lines="5"
+	        android:singleLine="false"
+	        android:layout_height="wrap_content"
+	        android:gravity="top"
+	        />
+	    
+	</TableRow>
+	<TableRow
+	    	android:id="@+id/add_row3"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:gravity="center_horizontal"
+	    	>
+	    <TextView 
+	        android:id="@+id/kind_of_word_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:text="@string/kind_of_word"
+	        />
+	    <Spinner 
+	        android:id="@+id/kind_of_word"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        android:prompt="@string/kind_of_word_prompt"
+	        android:entries="@array/word_arrays"
+	        
+	        />
+	</TableRow>
+    <TableRow 
+        	android:id="@+id/add_row4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:gravity="center_horizontal"
+        	>
+	    	<TextView 
+		        android:id="@+id/empty"
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:textStyle="bold"
+		        android:text=""
+	        />
+        	<TableLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:gravity="left">	
+        	<TableRow 
+        	    android:id="@+id/add_row_child"
+	        	android:layout_width="fill_parent"
+	        	android:layout_height="wrap_content"
+	        	android:gravity="left">
+	        	<Button 
+	        	     android:id="@+id/cancel_edit_word"
+	        	     android:text="@string/cancel_edit_word_button"
+	        	     />
+        	    <Button 
+        	     android:id="@+id/save_edit_word"
+        	     android:text="@string/add_word_button"
+        		 />
+	        	
+        	</TableRow>
+        	
+        	
+        	</TableLayout>
+    </TableRow>
+</TableLayout>

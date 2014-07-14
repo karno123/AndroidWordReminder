@@ -58,7 +58,7 @@ public class DatabaseConnection extends SQLiteOpenHelper{
 		SQLiteDatabase addNewWord=this.getWritableDatabase();
 		ContentValues contentValues =new ContentValues();
 		contentValues.put("word",newWord.getWord());
-		contentValues.put("kindOfWord",newWord.getKinOfWord());
+		contentValues.put("kindOfWord",newWord.getKindOfWord());
 		contentValues.put("meaning",newWord.getMeaning());
 		
 		long isSuccess=addNewWord.insert(TABLE_NEW_WORD, null, contentValues);
@@ -98,38 +98,123 @@ public class DatabaseConnection extends SQLiteOpenHelper{
 		ArrayList<ViewWordModel> listAllWord=new ArrayList<ViewWordModel>();
 		
 		SQLiteDatabase db=this.getReadableDatabase();
-		String getAllWord="SELECT word,kindOfWord,meaning FROM "+TABLE_NEW_WORD+" order by word asc";
+		String getAllWord="SELECT word,kindOfWord,meaning,id FROM "+TABLE_NEW_WORD+" order by word asc";
 		
 		Cursor cursor=db.rawQuery(getAllWord, null);
 		
-		String header="a";
+		String header="zz";
 		ViewWordModel viewWordModel=null;
 		ViewWordModel viewWordModelWithHeader=null;
-		if(cursor.moveToFirst())
+		
+
+		while(cursor.moveToNext())
 		{
+			if(header.toLowerCase().equals(cursor.getString(0).substring(0,1).toLowerCase()))
+			{
+				 viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header,cursor.getInt(3));
+ 
+			}else
+			{
+				header=cursor.getString(0).substring(0, 1);
+				viewWordModelWithHeader=new ViewWordModel(header);
+				listAllWord.add(viewWordModelWithHeader);
+				viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header,cursor.getInt(3));
+				
+			}
+			listAllWord.add(viewWordModel);
+
+		}
+		
+		
+		db.close();
+		Log.i("Database", "============Get All Word Out=================");
+		return listAllWord;
+		
+	}
+	
+	public ArrayList<ViewWordModel> getAllWordBySpecificWord(String queryWord)
+	{
+		Log.i("Database","=============Get All Word By specific word In===================");
+		ArrayList<ViewWordModel> listAllWord=new ArrayList<ViewWordModel>();
+		
+		SQLiteDatabase db=this.getReadableDatabase();
+		String getAllWord="SELECT word,kindOfWord,meaning,id FROM "+TABLE_NEW_WORD+" WHERE WORD like '"+queryWord+"%' order by word asc";
+		
+		Cursor cursor=db.rawQuery(getAllWord, null);
+		
+		String header="zz";
+		ViewWordModel viewWordModel=null;
+		ViewWordModel viewWordModelWithHeader=null;
+
 			while(cursor.moveToNext())
 			{
 				if(header.toLowerCase().equals(cursor.getString(0).substring(0,1).toLowerCase()))
 				{
-					 viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header);
-					 viewWordModel.setHeader(false);
-					 
+					 viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header,cursor.getInt(3));
+	 
 				}else
 				{
 					header=cursor.getString(0).substring(0, 1);
 					viewWordModelWithHeader=new ViewWordModel(header);
 					listAllWord.add(viewWordModelWithHeader);
-					viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header);
+					viewWordModel=new ViewWordModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), header,cursor.getInt(3));
 					
 				}
 				listAllWord.add(viewWordModel);
-				
+
 			}
-		}
+		
 		db.close();
-		Log.i("Database", "============Get All Word Out=================");
+		Log.i("Database", "============Get All Word by specific word Out=================");
 		return listAllWord;
 		
+	}
+	
+	public String updateWord(NewWord word)
+	{
+		String status="SUCCESS";
+		Log.i("Database","============Update word in ==============================");
+		SQLiteDatabase db=this.getReadableDatabase();
+		String sql="UPDATE "+TABLE_NEW_WORD+" SET word='"+word.getWord()+"',kindOfWord='"+word.getKindOfWord()+"',meaning='"+word.getMeaning()+"' where id="+word.getId();
+		Log.i("Database",sql);
+		try
+		{
+			db.execSQL(sql);
+		}catch(Exception e)
+		{
+			status="Error When Update";
+		}finally
+		{
+			db.close();
+		}
+		Log.i("Database","============Update word out==============================");
+		return status;
+	}
+	
+	public String deleteWord(int id)
+	{
+		Log.i("Database","============Delete Word In==============================");
+		
+		String status="";
+		
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		String sql="DELETE FROM "+TABLE_NEW_WORD+" WHERE ID="+id;
+		
+		try{
+			db.execSQL(sql);
+			status="SUCCESS";
+		}catch (Exception e) {
+			// TODO: handle exception
+			status="FAILED";
+		}finally
+		{
+			db.close();
+		}
+		
+		
+		Log.i("Database","============Delete Word Out============================");
+		return status;
 	}
 	
 }

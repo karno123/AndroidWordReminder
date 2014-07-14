@@ -1,0 +1,41 @@
+package com.example.wordremainder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class ViewWord extends Activity{
+	
+	private ArrayAdapter listArrayAdapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.view_word);
+		generateViewWord();
+	}
+	
+	public void generateViewWord()
+	{
+		ListView listFootballView= (ListView) findViewById(R.id.)
+		
+		List<String> footballTeam=new ArrayList<String>();
+		footballTeam.add("Mancester United");
+		footballTeam.add("Arsenal");
+		footballTeam.add("Liverpool");
+		
+		listArrayAdapter=new  ArrayAdapter<String>(this, R.layout.view_word_list_layout, footballTeam);  
+		
+	}
+	
+
+}

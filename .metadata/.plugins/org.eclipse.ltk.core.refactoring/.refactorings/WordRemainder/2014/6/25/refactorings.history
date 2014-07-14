@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;WordRemainder/res/layout/setting_apps.xml&apos; to &apos;setting_app.xml&apos;" description="Rename resource &apos;setting_apps.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/setting_apps.xml" name="setting_app.xml" stamp="1402824038251" updateReferences="true"/>
+</session>

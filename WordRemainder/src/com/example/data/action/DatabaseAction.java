@@ -31,4 +31,22 @@ public class DatabaseAction {
 		Log.i("Action", "===========get all word out===============");
 		return allWordList;
 	}
+	
+	public ArrayList<ViewWordModel> getAllWordListByWord(String word,Context context)
+	{
+		Log.i("Action", "==========get all word list by specific word in===============");
+		DatabaseConnection databaseConnection=new DatabaseConnection(context);
+		ArrayList<ViewWordModel> wordListByWord=databaseConnection.getAllWordBySpecificWord(word);
+		Log.i("Action", "==========get all word list by specific word out =============");
+		return wordListByWord;
+	}
+	
+	public String updateWord(NewWord word,Context context)
+	{
+		Log.i("Action", "==========update word in===============");
+		DatabaseConnection databaseConnection=new DatabaseConnection(context);
+		String status=databaseConnection.updateWord(word);
+		Log.i("Action", "==========update word out===============");
+		return status;
+	}
 }
